@@ -26,7 +26,7 @@ const SlideSection = () => {
     >
       <div className="overflow-hidden w-full h-[100px] flex items-center mb-2.5">
         <motion.div
-          className="slide inline-flex whitespace-nowrap text-9xl text-white tracking-wider"
+          className="slide inline-flex whitespace-nowrap xl:text-9xl lg:text-7xl md:text-6xl text-4xl text-white tracking-wider"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
         >

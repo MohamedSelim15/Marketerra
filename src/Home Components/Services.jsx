@@ -11,7 +11,7 @@ const Service = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 2, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="min-h-screen flex flex-col xl:flex-row-reverse items-center justify-center xl:justify-evenly lg:px-20 px-5 relative overflow-hidden"
+      className="min-h-screen flex flex-col xl:flex-row-reverse items-center justify-center xl:justify-evenly lg:px-20 px-5 relative overflow-hidden mt-20"
     >
       <div className="flex justify-center w-full xl:w-1/2 mb-10 xl:mb-0">
         <img
