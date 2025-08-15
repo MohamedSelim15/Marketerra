@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Permanent+Marker&family=Playwrite+PL:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Love+Ya+Like+A+Sister&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Permanent+Marker&family=Playwrite+PL:wght@100..400&display=swap");
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* cursor: none; */
+  position: relative;
+  background-color: #010306;
+  color: white;
+  scroll-behavior: smooth;
+  /* height: 700vh; */
+}
+
+/* Hide default cursor on interactive elements */
+a,
+button,
+input,
+textarea,
+select {
+  /* cursor: none; */
+}
+
+/* Section styling */
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Show default cursor on mobile */
+@media (max-width: 768px) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    cursor: auto;
+  }
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+  }
+}
+
+.title {
+  font-family: "Playwrite PL", cursive;
+}
+.slide{
+  font-family: "Love Ya Like A Sister", cursive;
+  
+}
+
+/* Keyframes for scrolling */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Base animation */
+.icons-slider {
+  display: flex;
+  white-space: nowrap;
+  position: absolute;
+  animation: scrollLeft 150s linear infinite;
+  animation-play-state: running;
+}
+
+/* When group is hovered, pause the animation */
+.group:hover .icons-slider {
+  animation-play-state: paused;
+}
+
+/* Optional styling */
+.icon-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10rem;
+  font-size: 6rem;
+  color: white;
+}
+
+.icon {
+  margin: 0 2.5rem;
+  opacity: 0.6;
+  transition: transform 0.3s, opacity 0.3s;
+  cursor: pointer;
+}
+.icon:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+.icon:active {
+  transform: scale(.9);
+  opacity: 1;
+}
+
+.swiper-pagination-bullet {
+  background-color: #2ca378 !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #4ade80 !important;
+  opacity: 1;
+}
