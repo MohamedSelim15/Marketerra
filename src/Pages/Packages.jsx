@@ -3,7 +3,7 @@ import PDF2 from "../../public/StaStandard Packages.pdf";
 import Footer from "../Home Components/Footer";
 
 const Packages = () => {
-  const images=["../../public/StaStandard/StaStandard Packages_page-0001.jpg","../../public/StaStandard/StaStandard Packages_page-0002.jpg","../../public/StaStandard/StaStandard Packages_page-0003.jpg"];
+  const images=["/StaStandard/StaStandard Packages_page-0001.jpg","/StaStandard/StaStandard Packages_page-0002.jpg","/StaStandard/StaStandard Packages_page-0003.jpg"];
   return (
     // <div className="w-screen h-screen overflow-hidden m-0 -mb-20 p-0">
     //   <iframe
