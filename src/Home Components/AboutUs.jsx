@@ -15,9 +15,13 @@ const AboutUs = () => {
       className="xl:h-screen flex flex-col xl:flex-row items-center justify-center xl:justify-evenly lg:px-24 px-10 relative  mt-20"
     >
       <div className="flex justify-center h-screen xl:w-auto mb-10 xl:mb-0">
-        <Spline
+        {/* <Spline
           className="xl:absolute lg:left-[-28%] xl:top-0  w-1/2 xl:max-w-none"
           scene="https://prod.spline.design/2lrNsm8ISUdUZ1ft/scene.splinecode"
+        /> */}
+        <img
+        src={Image}
+          className="xl:absolute lg:left-[-6%] xl:top-0  w-1/2 xl:max-w-none"
         />
       </div>
 
