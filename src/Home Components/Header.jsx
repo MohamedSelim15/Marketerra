@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiGithub, FiTwitter, FiLinkedin, FiMenu, FiX } from "react-icons/fi";
+import {
+  FiGithub,
+  FiTwitter,
+  FiLinkedin,
+  FiMenu,
+  FiX,
+} from "react-icons/fi";
+import { FaChevronDown } from "react-icons/fa";
+
 import { HiOutlineMail } from "react-icons/hi";
 
 import { Link, Route } from "react-router-dom";
@@ -14,6 +22,9 @@ const Header = () => {
 
   const openContactForm = () => setContactFormOpen(true);
   const closeContactForm = () => setContactFormOpen(false);
+
+  const [portfolioIsOpen, setPortfolioIsOpen] = useState(false);
+  let timeoutId;
 
   return (
     <header className="bg-black/60 fixed w-full z-50 transition-all duration-300  -mb-20 ">
@@ -42,29 +53,81 @@ const Header = () => {
           {[
             { name: "Home", to: "/" },
             { name: "Services", to: "/services" },
-            { name: "Portfolio", to: "/portfolio" },
+            { name: "Portfolio", dropdown: true },
             { name: "Packages", to: "/packages" },
-            // { name: "Blog", to: "/blog" },
           ].map((item, index) => (
-            // <motion.a
-            <MotionLink
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                delay: 0.7 + index * 0.2,
-              }}
-              to={item.to}
+            <div
               key={index}
-              className="relative text-gray-800 dark:text-gray-200 hover:cyan-600 dark:hover:text-[#2ca378] font-medium transition-colors duration-300 ease-in-out group font-"
+              className="relative"
+              onMouseEnter={() => {
+                clearTimeout(timeoutId);
+                item.dropdown && setPortfolioIsOpen(true);
+              }}
+              onMouseLeave={() => {
+                timeoutId = setTimeout(
+                  () => item.dropdown && setPortfolioIsOpen(false),
+                  200
+                );
+              }}
             >
-              {item.name}
-              <span className="absolute bottom-0 left-0 w-0 h-[2.2px] bg-[#2ca378] group-hover:w-full transition-all duration-300"></span>
-            </MotionLink>
+              <MotionLink
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  delay: 0.7 + index * 0.2,
+                }}
+                to={item.to}
+                className={`relative text-gray-800 dark:text-gray-200 dark:hover:text-[#2ca378] font-medium transition-colors duration-300 ease-in-out group ${
+                  portfolioIsOpen ? "text-[#2ca378]" : ""
+                }`}
+              >
+                {item.name}
+                {item.dropdown && (
+                  <FaChevronDown
+                    className={`inline-block ml-2  text-sm transition-transform duration-300 ${
+                      portfolioIsOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                )}
+
+                <span className="absolute -bottom-1 left-0 w-0 h-[2.2px] bg-[#2ca378] group-hover:w-full transition-all duration-300"></span>
+              </MotionLink>
+
+              {/* Dropdown for Portfolio */}
+              {item.dropdown && portfolioIsOpen && (
+                <div
+                onMouseEnter={() => setPortfolioIsOpen(true)}
+                  onMouseLeave={() => setPortfolioIsOpen(false)}
+                  className="absolute top-full left-0 mt-2 w-48 bg-black/90 rounded-lg shadow-lg py-2 z-50"
+                >
+                  <ul>
+                    <li>
+                      <Link
+                        to="/portfolio"
+                        className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-[#2ca378] "
+                      >
+                        Portfolio
+                      </Link>
+                    </li>
+                    <li>
+                      <a
+                        href="/Small Portfolio 2025.pdf"
+                        download="Marketerra.pdf"
+                        className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-[#2ca378] "
+                      >
+                        Download PDF
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
           ))}
         </nav>
+        {/* Dropdown for Portfolio */}
 
         <motion.button
           onClick={openContactForm}
@@ -255,30 +318,29 @@ const Header = () => {
                 </motion.li>
               </ul>
 
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  transition={{
-                    delay: 0.6,
-                    duration: 0.5,
-                    ease: "easeOut",
-                  }}
-                  className="mt-10 flex xl:justify-center xl:ml-0  ml-[20%]"
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{
+                  delay: 0.6,
+                  duration: 0.5,
+                  ease: "easeOut",
+                }}
+                className="mt-10 flex xl:justify-center xl:ml-0  ml-[20%]"
+              >
+                <div
+                  // href="mailto:marketerraagencyy@gmail.com"
+                  // target="_blank"
+                  // rel="noopener noreferrer"
+                  className="flex flex-row text-center items-center gap-2 group"
                 >
-                  <div
-                    // href="mailto:marketerraagencyy@gmail.com"
-                    // target="_blank"
-                    // rel="noopener noreferrer"
-                    className="flex flex-row text-center items-center gap-2 group"
-                  >
-                    <HiOutlineMail className="text-2xl  text-[#2ca378] transition-colors duration-300" />
-                    <span className="text-sm text-[#2ca378] transition-colors duration-300">
-                      marketerraagencyy@gmail.com
-                    </span>
-                  </div>
-                </motion.div>
-
+                  <HiOutlineMail className="text-2xl  text-[#2ca378] transition-colors duration-300" />
+                  <span className="text-sm text-[#2ca378] transition-colors duration-300">
+                    marketerraagencyy@gmail.com
+                  </span>
+                </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}

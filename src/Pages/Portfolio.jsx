@@ -1,6 +1,7 @@
 import React from "react";
 import PDF from "../../public/Small Portfolio 2025.pdf";
 import Footer from "../Home Components/Footer";
+import OurWork from "../Porfolio Components/OurWork";
 
 const Portfolio = () => {
   const Images = [
@@ -31,15 +32,15 @@ const Portfolio = () => {
     "../../public/Small Portfolio/Small Portfolio 2025_page-0025.jpg",
   ];
   return (
-    <div className="w-screen h-screen overflow-hidden m-0 -mb-20 p-0">
-      <iframe
-        src={`${PDF}#toolbar=0&navpanes=0`}
-        className="w-full h-full border-0"
-        title="Portfolio PDF"
-        loading="lazy"
-      ></iframe>
+    // <div className="w-screen h-screen overflow-hidden m-0 -mb-20 p-0">
+    //   <iframe
+    //     src={`${PDF}#toolbar=0&navpanes=0`}
+    //     className="w-full h-full border-0"
+    //     title="Portfolio PDF"
+    //     loading="lazy"
+    //   ></iframe>
 
-    </div>
+    // </div>
 
     // <div>
     //   <div className="flex flex-col justify-center items-center w-screen">
@@ -56,6 +57,10 @@ const Portfolio = () => {
     //   </div>
     //   <Footer />
     // </div>
+
+    <div>
+      <OurWork/>
+    </div>
   );
 };
 
