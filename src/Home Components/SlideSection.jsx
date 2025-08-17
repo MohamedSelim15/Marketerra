@@ -79,7 +79,7 @@ const SlideSection = () => {
   <div className="icons-slider">
     {[...Array(60)].map((_, i) => (
       <div key={i} className="icon-row">
-        {[Popeye,Abdo,<FiGithub />, <FiTwitter />, <FiLinkedin />, <FiMenu />, <FiX />].map(
+        {[Popeye,Abdo,"", "", "", "", ""].map(
           (icon, index) => (
             // <span key={index} className="icon">
             //   {icon || <img src={icon} key={index} alt="" className="icon" />}

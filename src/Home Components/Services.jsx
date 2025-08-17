@@ -3,6 +3,7 @@ import Spline from "@splinetool/react-spline";
 import { motion } from "framer-motion";
 import hero from "../assets/possibility.png";
 import { MdOutlineReadMore } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Service = () => {
   return (
@@ -117,9 +118,9 @@ const Service = () => {
         </div>
 
         <button className="mt-10 bg-[#00291a] drop-shadow-2xl px-6 py-3 rounded-2xl cursor-pointer shadow-xl shadow-[#2ca378]/50 hover:bg-[#015536] mb-10 hover:-translate-y-2 transition-all duration-500">
-          <a className="underline flex" href="#">
+          <Link to="/services" className="underline flex" href="#">
             Read More <MdOutlineReadMore className="text-xl ml-2 mt-1" />
-          </a>
+          </Link>
         </button>
       </div>
     </motion.section>

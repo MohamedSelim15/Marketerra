@@ -147,7 +147,9 @@ const Header = () => {
             onClick={toggleMenu}
           >
             {isOpen ? (
-              <FiX className="h-6 w-6 mr-1" />
+              <motion.div initial={{ rotate: 0 }} whileInView={{ rotate: 360 }}>
+                <FiX className="h-6 w-6 mr-1" />
+              </motion.div>
             ) : (
               <FiMenu className="h-6 w-6 mr-1" />
             )}
@@ -156,17 +158,25 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-  <motion.div
+      <motion.div
         initial={{ opacity: 0, height: 0 }}
         animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
         transition={{ duration: 0.8 }}
-        className="md:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-lg px-4 py-5 space-y-5 relative top-10"
+        className="xl:hidden lg:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-lg px-4 xl:py-0  lg:py-0 md:py-0 py-5 space-y-5 relative top-10"
       >
         <nav className="flex flex-col space-y-3">
-          <Link onClick={toggleMenu} className="text-white font-medium py-2 block" to="/">
+          <Link
+            onClick={toggleMenu}
+            className="text-white font-medium py-2 block"
+            to="/"
+          >
             Home
           </Link>
-          <Link onClick={toggleMenu} className="text-white font-medium py-2 block" to="/services">
+          <Link
+            onClick={toggleMenu}
+            className="text-white font-medium py-2 block"
+            to="/services"
+          >
             Services
           </Link>
 
@@ -181,19 +191,29 @@ const Header = () => {
           {/* Dropdown links for Portfolio */}
           {mobilePortfolioOpen && (
             <ul className="flex flex-col space-y-2 -mt-1 ml-6 text-gray-500">
-              <Link to="/portfolio" onClick={toggleMenu}>Portfolio Page</Link>
-              <a href="/Small Portfolio 2025.pdf" onClick={toggleMenu} download="Marketerra.pdf">
+              <Link to="/portfolio" onClick={toggleMenu}>
+                Portfolio Page
+              </Link>
+              <a
+                href="/Small Portfolio 2025.pdf"
+                onClick={toggleMenu}
+                download="Marketerra.pdf"
+              >
                 Download PDF
               </a>
             </ul>
           )}
 
-          <Link onClick={toggleMenu} className="text-white font-medium py-2 block" to="/packages">
+          <Link
+            onClick={toggleMenu}
+            className="text-white font-medium py-2 block"
+            to="/packages"
+          >
             Packages
           </Link>
         </nav>
 
-        <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+        <div className="pt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
           <button
             onClick={() => {
               toggleMenu();
@@ -297,12 +317,12 @@ const Header = () => {
                   </a>
                 </motion.li>
                 <motion.li
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false }}
                   transition={{
-                    delay: 0.6,
-                    duration: 0.5,
+                    delay: 0.8,
+                    duration: 0.8,
                     ease: "easeOut",
                   }}
                   className="mt-10 hover:text-[#2ca378] transition-colors duration-300"

@@ -89,7 +89,7 @@ section {
   display: flex;
   white-space: nowrap;
   position: absolute;
-  animation: scrollLeft 150s linear infinite;
+  animation: scrollLeft 50s linear infinite;
   animation-play-state: running;
 }
 
